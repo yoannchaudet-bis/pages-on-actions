@@ -1,0 +1,16 @@
+name: build
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every 10 min
+    - cron: */10 * * * *
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Commit if any changes were made"
+      run: |
+        git commit -m "Commit (automatic)" --allow-empty
+        git push
