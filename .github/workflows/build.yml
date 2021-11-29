@@ -10,7 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: "Commit if any changes were made"
+    - uses: actions/checkout@v2
+    - name: push commit
       run: |
         git commit -m "Commit (automatic)" --allow-empty
         git push
